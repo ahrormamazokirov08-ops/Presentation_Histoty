@@ -1,0 +1,2283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uzbekistan: Priority International Ratings & Strategic Performance Indicators</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #07111e;
+      --bg-surface: #0e1e33;
+      --bg-card: rgba(18, 38, 64, 0.75);
+      --bg-card-hover: rgba(26, 52, 86, 0.85);
+      --accent-emerald: #10b981;
+      --accent-emerald-dark: #047857;
+      --accent-gold: #f59e0b;
+      --accent-gold-light: #fbbf24;
+      --accent-cyan: #06b6d4;
+      --accent-blue: #3b82f6;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-sub: #cbd5e1;
+      --border-color: rgba(148, 163, 184, 0.15);
+      --border-highlight: rgba(16, 185, 129, 0.35);
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .ambient-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: 
+        radial-gradient(circle at 15% 20%, rgba(16, 185, 129, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(245, 158, 11, 0.07) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.04) 0%, transparent 60%);
+    }
+
+    header.deck-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(7, 17, 30, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 50;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .uzb-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent-emerald);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .deck-title-mini {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-sub);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 480px;
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border-color);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      transition: var(--transition);
+      user-select: none;
+    }
+    .btn-action:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+    .btn-action.active {
+      background: rgba(16, 185, 129, 0.2);
+      border-color: var(--accent-emerald);
+      color: #34d399;
+    }
+    .btn-action svg {
+      width: 15px;
+      height: 15px;
+      fill: currentColor;
+    }
+
+    main.presentation-container {
+      position: absolute;
+      top: 60px;
+      bottom: 60px;
+      left: 0;
+      right: 0;
+      overflow: hidden;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 40px;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      max-width: 1320px;
+      height: 100%;
+      max-height: 840px;
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      opacity: 0;
+      transform: translateY(12px) scale(0.99);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 44px 54px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(16px);
+      overflow-y: auto;
+    }
+
+    .slide.active {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .slide-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .slide-category {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-gold);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .slide-category::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--accent-gold);
+      border-radius: 50%;
+    }
+    .slide-counter-badge {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 3px 10px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+
+    .slide-title {
+      font-family: var(--font-heading);
+      font-size: 32px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+    .slide-subtitle {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 26px;
+      line-height: 1.5;
+    }
+
+    .slide-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .grid-3col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .grid-4col {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 22px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover {
+      border-color: var(--border-highlight);
+      background: rgba(255, 255, 255, 0.05);
+      transform: translateY(-2px);
+    }
+    .card-accent-border {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-emerald), var(--accent-gold));
+    }
+
+    .card-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card-title svg {
+      width: 20px;
+      height: 20px;
+      color: var(--accent-gold);
+    }
+    .card-text {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--text-sub);
+    }
+
+    .metric-badge {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 4px 10px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent-emerald);
+    }
+    .metric-badge.gold {
+      background: rgba(245, 158, 11, 0.12);
+      border-color: rgba(245, 158, 11, 0.3);
+      color: var(--accent-gold);
+    }
+    .metric-badge.cyan {
+      background: rgba(6, 182, 212, 0.12);
+      border-color: rgba(6, 182, 212, 0.3);
+      color: var(--accent-cyan);
+    }
+
+    .stat-hero {
+      font-size: 40px;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: #fff;
+      line-height: 1;
+      margin: 10px 0 6px;
+    }
+    .stat-hero span {
+      font-size: 18px;
+      color: var(--accent-emerald);
+      font-weight: 600;
+    }
+
+    ul.bullet-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    ul.bullet-list li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: var(--text-sub);
+    }
+    ul.bullet-list li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--accent-emerald);
+      font-weight: bold;
+    }
+
+    .slide-footer-info {
+      padding-top: 14px;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .slide-footer-info .speech-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent-gold);
+      cursor: pointer;
+    }
+    .slide-footer-info .speech-hint:hover {
+      text-decoration: underline;
+    }
+
+    footer.deck-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(7, 17, 30, 0.9);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border-color);
+      z-index: 50;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .progress-bar-container {
+      width: 220px;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent-emerald), var(--accent-gold));
+      width: 5%;
+      transition: width 0.3s ease;
+    }
+    .slide-index-display {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-sub);
+    }
+
+    .footer-center {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .nav-btn:hover {
+      background: rgba(16, 185, 129, 0.2);
+      border-color: var(--accent-emerald);
+      transform: scale(1.05);
+    }
+    .nav-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .footer-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .key-tip {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .kbd {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: #fff;
+    }
+
+    /* SPEAKER DRAWER */
+    .speaker-drawer {
+      position: fixed;
+      right: 0;
+      bottom: 60px;
+      width: 480px;
+      top: 60px;
+      background: #091524;
+      border-left: 1px solid var(--accent-emerald);
+      box-shadow: -15px 0 40px rgba(0, 0, 0, 0.65);
+      z-index: 60;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .speaker-drawer.open {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      padding: 16px 20px;
+      background: rgba(16, 185, 129, 0.1);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .drawer-header h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .drawer-header h3 svg {
+      width: 18px;
+      height: 18px;
+      color: var(--accent-gold);
+    }
+    .close-drawer-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 4px;
+      font-size: 18px;
+    }
+    .close-drawer-btn:hover {
+      color: #fff;
+    }
+
+    .drawer-body {
+      flex: 1;
+      padding: 22px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .teleprompter-banner {
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px dashed var(--accent-gold);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 12px;
+      color: var(--accent-gold-light);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .speech-meta-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 12px 14px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      font-size: 12px;
+    }
+    .speech-meta-item strong {
+      display: block;
+      color: var(--text-muted);
+      font-size: 10.5px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .speech-meta-item span {
+      color: var(--accent-emerald);
+      font-weight: 600;
+    }
+
+    .speech-box {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 18px;
+    }
+    .speech-box h4 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--accent-emerald);
+      margin-bottom: 12px;
+    }
+    .speech-text {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #f1f5f9;
+      font-family: var(--font-body);
+      white-space: pre-wrap;
+    }
+
+    .cue {
+      display: inline-block;
+      padding: 1px 7px;
+      margin: 0 3px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+    }
+    .cue-pause {
+      background: rgba(245, 158, 11, 0.2);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+    }
+    .cue-point {
+      background: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+
+    /* GRID MODAL */
+    .grid-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 8, 16, 0.88);
+      backdrop-filter: blur(14px);
+      z-index: 100;
+      display: none;
+      flex-direction: column;
+      padding: 30px;
+    }
+    .grid-modal.open {
+      display: flex;
+    }
+    .grid-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1400px;
+      margin: 0 auto 20px;
+      width: 100%;
+    }
+    .grid-slides-wrapper {
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+      flex: 1;
+      overflow-y: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+      padding-bottom: 30px;
+    }
+    .grid-slide-thumb {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 16px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 130px;
+    }
+    .grid-slide-thumb:hover {
+      border-color: var(--accent-emerald);
+      background: rgba(16, 185, 129, 0.08);
+      transform: translateY(-3px);
+    }
+    .grid-slide-thumb.active {
+      border-color: var(--accent-gold);
+      background: rgba(245, 158, 11, 0.1);
+    }
+    .grid-slide-thumb .thumb-number {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--accent-gold);
+      font-weight: 700;
+    }
+    .grid-slide-thumb .thumb-title {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #fff;
+      margin: 8px 0;
+      line-height: 1.35;
+    }
+
+    @media print {
+      body {
+        overflow: visible;
+        background: #fff !important;
+        color: #000 !important;
+      }
+      header.deck-header, footer.deck-footer, .speaker-drawer, .ambient-bg {
+        display: none !important;
+      }
+      main.presentation-container {
+        position: static;
+        padding: 0;
+        display: block;
+      }
+      .slide {
+        display: block !important;
+        opacity: 1 !important;
+        transform: none !important;
+        page-break-after: always;
+        break-after: page;
+        border: 1px solid #ccc;
+        background: #fff !important;
+        color: #000 !important;
+        box-shadow: none;
+        max-width: 100%;
+        max-height: none;
+        margin-bottom: 20px;
+      }
+      .card {
+        background: #f8fafc !important;
+        color: #000 !important;
+        border: 1px solid #ddd;
+      }
+      .slide-title, .card-title {
+        color: #000 !important;
+      }
+      .slide-subtitle, .card-text, ul.bullet-list li {
+        color: #333 !important;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .slide {
+        padding: 24px;
+      }
+      .grid-3col, .grid-4col {
+        grid-template-columns: 1fr;
+      }
+      .grid-2col {
+        grid-template-columns: 1fr;
+      }
+      .speaker-drawer {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-bg"></div>
+
+  <!-- Header -->
+  <header class="deck-header">
+    <div class="brand">
+      <span class="uzb-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+          <path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10" fill="currentColor"/>
+        </svg>
+        Republic of Uzbekistan
+      </span>
+      <span class="deck-title-mini">Priority International Ratings & National Reform Strategy</span>
+    </div>
+
+    <div class="header-controls">
+      <button class="btn-action" id="gridToggleBtn" title="Slide Overview (Press G)">
+        <svg viewBox="0 0 24 24"><path d="M4 4h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 10h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 16h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4z"/></svg>
+        Grid (G)
+      </button>
+      <button class="btn-action" id="speakerToggleBtn" title="Toggle Presenter Speech Script (Press S)">
+        <svg viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/></svg>
+        Speech Script (S)
+      </button>
+      <button class="btn-action" id="fullscreenBtn" title="Fullscreen (Press F)">
+        <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+        Fullscreen
+      </button>
+      <button class="btn-action" onclick="window.print()" title="Print / Export to PDF">
+        <svg viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+        PDF
+      </button>
+    </div>
+  </header>
+
+  <!-- Presentation Main Container -->
+  <main class="presentation-container">
+
+    <!-- SLIDE 1 -->
+    <section class="slide active" data-slide="1">
+      <div class="slide-meta">
+        <span class="slide-category">Keynote Opening & Strategic Context</span>
+        <span class="slide-counter-badge">Slide 01 / 20</span>
+      </div>
+      <div>
+        <h1 class="slide-title" style="font-size: 38px; max-width: 900px; margin-bottom: 14px;">
+          The Most Important Performance Indicators & Strategy According to International Ratings and Indices
+        </h1>
+        <p class="slide-subtitle" style="font-size: 17px; max-width: 820px;">
+          Priorities for the Republic of Uzbekistan in Modern Governance, Economic Competitiveness, and Global Integration
+        </p>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-3col">
+          <div class="card">
+            <div class="card-accent-border"></div>
+            <div class="card-title">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99zM11 10h2v4h-2zm0 6h2v2h-2z"/></svg>
+              Modern Statehood
+            </div>
+            <p class="card-text">
+              Transforming international indices from external report cards into systemic instruments of domestic modernization and policymaking.
+            </p>
+            <span class="metric-badge">Strategic Shift</span>
+          </div>
+
+          <div class="card">
+            <div class="card-accent-border"></div>
+            <div class="card-title">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+              Decree Framework
+            </div>
+            <p class="card-text">
+              Institutionalized by Presidential Decrees UP-5729 and UP-6003, establishing direct ministerial accountability and parliamentary oversight.
+            </p>
+            <span class="metric-badge gold">UP-6003 & UP-5729</span>
+          </div>
+
+          <div class="card">
+            <div class="card-accent-border"></div>
+            <div class="card-title">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+              "Uzbekistan – 2030"
+            </div>
+            <p class="card-text">
+              Quantitative benchmark integration: Top 50 in Global Innovation, high-tier rule of law, and accelerated industrial and human capital growth.
+            </p>
+            <span class="metric-badge cyan">Vision 2030</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer-info">
+        <span>Presenter: Fast 30-40s Speech Mode Enabled</span>
+        <span class="speech-hint" onclick="toggleSpeakerDrawer()">
+          💬 Press 'S' to open Speaker's 30-Second Speech
+        </span>
+      </div>
+    </section>
+
+    <!-- SLIDE 2 -->
+    <section class="slide" data-slide="2">
+      <div class="slide-meta">
+        <span class="slide-category">Historical Evolution & Transition</span>
+        <span class="slide-counter-badge">Slide 02 / 20</span>
+      </div>
+      <div>
+        <h2 class="slide-title">Historical Evolution: From Transition Economy to Benchmark Openness</h2>
+        <p class="slide-subtitle">A paradigm shift in national methodology: 1991–2016 vs. 2016–Present</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2col">
+          <div class="card" style="border-left: 4px solid var(--accent-gold);">
+            <div class="card-title" style="color: var(--accent-gold-light);">
+              First Phase: 1991–2016 (Cautious Transition)
+            </div>
+            <ul class="bullet-list">
+              <li><strong>Self-Reliant Model:</strong> Gradualist economic transition with limited engagement in external international evaluations.</li>
+              <li><strong>Data Asymmetry:</strong> Official statistics were largely internal; international ranking agencies lacked verified empirical data.</li>
+              <li><strong>Currency & Market Barriers:</strong> Multiple exchange rates and state-controlled currency conversions created perception gaps.</li>
+            </ul>
+          </div>
+
+          <div class="card" style="border-left: 4px solid var(--accent-emerald);">
+            <div class="card-title" style="color: var(--accent-emerald);">
+              Second Phase: 2016–Present (Active Global Integration)
+            </div>
+            <ul class="bullet-list">
+              <li><strong>Strategy of Actions (2017–2021):</strong> Full liberalization of the currency market and comprehensive tax overhaul.</li>
+              <li><strong>Openness Doctrine:</strong> Adoption of international methodological standards (IMF SDDS, UN Open Data).</li>
+              <li><strong>Benchmarking as State Policy:</strong> Mandatory ministerial KPIs tied directly to sovereign rank improvements.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer-info">
+        <span>Key Takeaway: International ratings shifted from external scrutiny to an internal compass for sovereign modernization.</span>
+        <span class="speech-hint" onclick="toggleSpeakerDrawer()">💬 View Speech Script</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 3 -->
+    <section class="slide" data-slide="3">
+      <div class="slide-meta">
+        <span class="slide-category">Institutional Architecture</span>
+        <span class="slide-counter-badge">Slide 03 / 20</span>
+      </div>
+      <div>
+        <h2 class="slide-title">Legal & Institutional Architecture: Decree UP-6003 & The Council</h2>
+        <p class="slide-subtitle">Creating a unified, legally mandated mechanism for tracking, analysis, and accountability</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-3col">
+          <div class="card">
+            <div class="card-title">Presidential Decree UP-6003</div>
+            <p class="card-text">
+              Signed in June 2020, establishing a new mechanism of state control over priority ratings with mandatory ministerial roadmaps.
+            </p>
+            <div class="metric-badge">Foundational Law</div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">The Republican Council</div>
+            <p class="card-text">
+              Co-chaired by the Senate Chair and Speaker of the Legislative Chamber, coordinating all state bodies and holding quarterly hearings.
+            </p>
+            <div class="metric-badge gold">Parliamentary Oversight</div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Single Portal & Research</div>
+            <p class="card-text">
+              Establishment of <strong>ratings.gov.uz</strong> and the Institute on Problems of Legislation to scientifically simulate policy impacts.
+            </p>
+            <div class="metric-badge cyan">Digital Monitoring</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 18px; background: rgba(16, 185, 129, 0.05); border-color: rgba(16, 185, 129, 0.25);">
+          <div class="card-title" style="font-size: 15px;">Core Working Mechanism:</div>
+          <p class="card-text" style="font-size: 13px;">
+            Every ministry is assigned personal KPI responsibility for specific sub-indicators. Any decline in score triggers mandatory parliamentary inquiry and corrective roadmaps.
+          </p>
+        </div>
+      </div>
+
+      <div class="slide-footer-info">
+        <span>Framework: Decrees UP-5729 (2019) & UP-6003 (2020)</span>
+        <span class="speech-hint" onclick="toggleSpeakerDrawer()">💬 View Speech Script</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 4 -->
+    <section class="slide" data-slide="4">
+      <div class="slide-meta">
+        <span class="slide-category">Strategic Classification</span>
+        <span class="slide-counter-badge">Slide 04 / 20</span>
+      </div>
+      <div>
+        <h2 class="slide-title">National Taxonomy of Priority Ratings & Indices</h2>
+        <p class="slide-subtitle">The official dual-track segmentation defined by the government of Uzbekistan</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2col">
+          <div class="card">
+            <div class="card-accent-border"></div>
+            <div class="card-title">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.8 10-10S17.52 2 12 2zm-1 14h2v2h-2zm0-10h2v8h-2z"/></svg>
+              Pillar 1: Political-Legal & Governance Indices
+            </div>
+            <p class="card-text" style="margin-bottom: 12px;">
+              Measuring civil rights, transparency, judicial fairness, and anti-corruption effectiveness:
+            </p>
+            <ul class="bullet-list">
+              <li><strong>Worldwide Governance Indicators (WGI - World Bank)</strong></li>
+              <li><strong>Rule of Law Index (World Justice Project - WJP)</strong></li>
+              <li><strong>Corruption Perceptions Index (Transparency International)</strong></li>
+              <li><strong>Open Data Inventory (ODIN - Open Data Watch)</strong></li>
+              <li><strong>E-Government Development Index (UN EGDI)</strong></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-accent-border"></div>
+            <div class="card-title">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+              Pillar 2: Socio-Economic & Innovation Indices
+            </div>
+            <p class="card-text" style="margin-bottom: 12px;">
+              Measuring market efficiency, industrial competitiveness, and human capital quality:
+            </p>
+            <ul class="bullet-list">
+              <li><strong>Global Innovation Index (WIPO / Cornell / INSEAD)</strong></li>
+              <li><strong>Index of Economic Freedom (Heritage Foundation)</strong></li>
+              <li><strong>World Bank B-READY (Business Ready)</strong></li>
+              <li><strong>Logistics Performance Index (LPI - World Bank)</strong></li>
+              <li><strong>Sovereign Credit Ratings & Human Development Index</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer-info">
+        <span>Strategic Principle: Economic growth cannot exist without transparent, predictable rule of law.</span>
+        <span class="speech-hint" onclick="toggleSpeakerDrawer()">💬 View Speech Script</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 5 -->
+    <section class="slide" data-slide="5">
+      <div class="slide-meta">
+        <span class="slide-category">Long-Term Targets</span>
+        <span class="slide-counter-badge">Slide 05 / 20</span>
+      </div>
+      <div>
+        <h2 class="slide-title">"Uzbekistan – 2030" Strategy: Rating Benchmarks</h2>
+        <p class="slide-subtitle">Approved by Presidential Decree UP-158 in September 2023: Quantifying the Future</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-4col">
+          <div class="card">
+            <div class="stat-hero">TOP 50</div>
+            <div class="card-title" style="font-size: 14px;">Global Innovation Index</div>
+            <p class="card-text" style="font-size: 12.5px;">Targeting top 50 in science, tech, venture capital, and intellectual property.</p>
+          </div>
+
+          <div class="card">
+            <div class="stat-hero">$4,000+</div>
+            <div class="card-title" style="font-size: 14px;">GDP Per Capita Target</div>
+            <p class="card-text" style="font-size: 12.5px;">Doubling the economy to reach upper-middle-income status ($160B GDP).</p>
+          </div>
+
+          <div class="card">
+            <div class="stat-hero">TOP 30</div>
+            <div class="card-title" style="font-size: 14px;">UN EGDI & ODIN</div>
+            <p class="card-text" style="font-size: 12.5px;">100% digital public services, paperless administration, and open data.</p>
+          </div>
+
+          <div class="card">
+            <div class="stat-hero">50%↓</div>
+            <div class="card-title" style="font-size: 14px;">Poverty Rate Halving</div>
+            <p class="card-text" style="font-size: 12.5px;">Direct correlation with the Multidimensional Poverty Index & social protection registry.</p>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 18px;">
+          <div class="card-title">Strategic Integration Principle</div>
+          <p class="card-text">
+            Over <strong>100 specific priority targets</strong> across 5 directions are tied directly to budget allocations, regional governors' KPIs (Khokims), and legislative reform roadmaps.
+          </p>
+        </div>
+      </div>
+
+      <div class="slide-footer-info">
+        <span>Reference: Decree UP-158 dated September 11, 2023</span>
+        <span class="speech-hint" onclick="toggleSpeakerDrawer()">💬 View Speech Script</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 6 -->
+    <section class="slide" data-slide="6">
+      <div class="slide-meta">
+        <span class="slide-category">Governance Benchmarks</span>
+        <span class="slide-counter-badge">Slide 06 / 20</span>
+      </div>
+      <div>
+        <h2 class="slide-title">Worldwide Governance Indicators (WGI - World Bank)</h2>
+        <p class="slide-subtitle">Analyzing performance across the 6 fundamental dimensions of state quality</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-3col">
+          <div class="card">
+            <div class="card-title">1. Regulatory Quality</div>
+            <p class="card-text">Elimination of thousands of obsolete licenses, implementation of regulatory sandbox regimes, and business deregulation.</p>
+            <span class="metric-badge">Fastest Progress</span>
+          </div>
+
+          <div class="card">
+            <div class="card-title">2. Government Effectiveness</div>
+            <p class="card-text">Administrative reorganization, civil service meritocracy, and nationwide Public Service Delivery Centers (Davlat Xizmatlari).</p>
+            <span class="metric-badge">Core Engine</span>
+          </div>
+
+          <div class="card">
+            <div class="card-title">3. Rule of Law</div>
+            <p class="card-text">Judicial reform, specialization of commercial and administrative courts, and automated judicial case distribution.</p>
+            <span class="metric-badge gold">Strategic Focus</span>
+          </div>
+
+          <div class="card">
+            <div class="card-title">4. Control of Corruption</div>
+            <p class="card-text">Establishment of the Anti-Corruption Agency, mandatory e-procurement (xarid.uzex.uz), and open assets declaration law.</p>
+            <span class="metric-badge gold">Priority Roadmap</span>
+          </div>
+
+          <div class="card">
+            <div class="card-title">5. Voice & Accountability</div>
+            <p class="card-text">Revitalization of local Councils, expansion of independent media/bloggers, and public budget participation (Open Budget).</p>
+            <span class="metric-badge cyan">Evolving Area</span>
+          </div>
+
+          <div class="card">
+            <div class="card-title">6. Political Stability</div>
+            <p class="card-text">Active neighborhood foreign policy, resolution of Central Asian border disputes, and domestic structural security.</p>
+            <span class="metric-badge">High Baseline</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer-info">
+        <span>Data Source: World Bank Worldwide Governance Indicators Database</span>
+        <span class="speech-hint" onclick="toggleSpeakerDrawer()">💬 View Speech Script</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 7 -->
+    <section class="slide" data-slide="7">
+      <div class="slide-meta">
+        <span class="slide-category">Justice & Legal Protection</span>
+        <span class="slide-counter-badge">Slide 07 / 20</span>
+      </div>
+      <div>
+        <h2 class="slide-title">Rule of Law Index (World Justice Project - WJP)</h2>
+        <p class="slide-subtitle">Judicial independence, civil justice, and fundamental rights protections</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2col">
+          <div class="card">
+            <div class="card-title">WJP Performance Profile</div>
+            <ul class="bullet-list">
+              <li><strong>Order & Security:</strong> Consistently high scores; recognized as one of the safest domestic environments globally.</li>
+              <li><strong>Open Government:</strong> Rapid climb driven by open budget laws and legislative public discussions (regulation.gov.uz).</li>
+              <li><strong>Civil & Regulatory Enforcement:</strong> Streamlined corporate dispute settlements and electronic notary services.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Targeted Structural Reforms</div>
+            <ul class="bullet-list">
+              <li><strong>Habeas Corpus Expansion:</strong> Transferring sanctioning of search, wiretapping, and asset seizure from prosecutors to judges.</li>
+              <li><strong>Judicial Self-Governance:</strong> Supreme Judicial Council overseeing appointments without executive branch interference.</li>
+              <li><strong>Legal Aid & Bar Independence:</strong> Strengthening the bar and guaranteeing automated free legal representation.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer-info">
+        <span>Responsible Agency: Ministry of Justice of the Republic of Uzbekistan</span>
+        <span class="speech-hint" onclick="toggleSpeakerDrawer()">💬 View Speech Script</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 8 -->
+    <section class="slide" data-slide="8">
+      <div class="slide-meta">
+        <span class="slide-category">Anti-Corruption & Transparency</span>
+        <span class="slide-counter-badge">Slide 08 / 20</span>
+      </div>
+      <div>
+        <h2 class="slide-title">Corruption Perceptions Index (Transparency International)</h2>
+        <p class="slide-subtitle">Systemic dismantling of everyday corruption and structural institutional reforms</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-3col">
+          <div class="card">
+            <div class="card-title">Trajectory of Progress</div>
+            <div class="stat-hero">+12<span> pts</span></div>
+            <p class="card-text">
+              Uzbekistan climbed from score 19 (in 2014) to score 31+ in recent evaluations, outpacing regional peers in consistent upward velocity.
+            </p>
+            <span class="metric-badge">Sustained Growth</span>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Anti-Corruption Agency</div>
+            <p class="card-text">
+              Established in 2020 directly accountable to the President and Oliy Majlis. Introduced Integrity Ratings for state bodies.
+            </p>
+            <span class="metric-badge gold">Institutional Oversight</span>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Public Procurement Digitization</div>
+            <p class="card-text">
+              Mandatory electronic auctions on <strong>xarid.uzex.uz</strong>, saving hundreds of millions in public funds and ending closed bidding.
+            </p>
+            <span class="metric-badge cyan">Anti-Friction Tech</span>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 18px;">
+          <div class="card-title">The "Open Budget" Phenomenon</div>
+          <p class="card-text">
+            The <em>Ochiq Budjet</em> initiative allows citizens to directly allocate trillions of UZS of regional budgets to school renovations, road repairs, and medical clinics.
+          </p>
+        </div>
+      </div>
+
+      <div class="slide-footer-info">
+        <span>Target: Score 40+ by 2026, entering the top half of global clean governance</span>
+        <span class="speech-hint" onclick="toggleSpeakerDrawer()">💬 View Speech Script</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 9 -->
+    <section class="slide" data-slide="9">
+      <div class="slide-meta">
+        <span class="slide-category">Data Transparency & Statistics</span>
+        <span class="slide-counter-badge">Slide 09 / 20</span>
+      </div>
+      <div>
+        <h2 class="slide-title">Open Data Inventory (ODIN) & Statistical Transformation</h2>
+        <p class="slide-subtitle">Uzbekistan's remarkable leap to Top 30 globally and #1 in Central Asia</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2col">
+          <div class="card" style="display: flex; flex-direction: column; justify-content: center;">
+            <div class="stat-hero" style="color: var(--accent-emerald);">30th <span>Global Rank</span></div>
+            <div class="card-title">Top 30 Worldwide in Open Data Watch</div>
+            <p class="card-text">
+              Uzbekistan jumped from 168th position in 2015 to the <strong>30th position globally</strong>, outranking multiple European Union and G20 economies in statistical coverage.
+            </p>
+            <div style="margin-top: 14px;">
+              <span class="metric-badge">Rank 1 in Central Asia</span>
+              <span class="metric-badge gold">Rank 2 in CIS</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Drivers of the Data Revolution</div>
+            <ul class="bullet-list">
+              <li><strong>National Open Data Portal (data.egov.uz):</strong> Hosting over 15,000 public datasets machine-readable in CSV, JSON, and XML.</li>
+              <li><strong>IMF e-GDDS & SDDS Integration:</strong> Migration to international statistical transparency standards for monetary and fiscal data.</li>
+              <li><strong>Modernized Statistics Agency:</strong> Complete restructuring to match UN Statistics Division best practices.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer-info">
+        <span>Source: Open Data Watch (ODIN Report) & Statistics Agency under President</span>
+        <span class="speech-hint" onclick="toggleSpeakerDrawer()">💬 View Speech Script</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 10 -->
+    <section class="slide" data-slide="10">
+      <div class="slide-meta">
+        <span class="slide-category">Digital Transformation</span>
+        <span class="slide-counter-badge">Slide 10 / 20</span>
+      </div>
+      <div>
+        <h2 class="slide-title">UN E-Government Development Index (EGDI)</h2>
+        <p class="slide-subtitle">"Digital Uzbekistan – 2030" and the elimination of bureaucratic gatekeepers</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-3col">
+          <div class="card">
+            <div class="card-title">Online Service Index (OSI)</div>
+            <p class="card-text">
+              Exponential growth via the Single Interactive Public Services Portal (<strong>my.gov.uz</strong>), offering over 570+ automated public services.
+            </p>
+            <span class="metric-badge">Top Metric Driver</span>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Telecommunication Backbone</div>
+            <p class="card-text">
+              Over 250,000 km of fiber-optic cables laid across regions; mobile internet speeds increased 5x with comprehensive rural connectivity.
+            </p>
+            <span class="metric-badge cyan">Digital Backbone</span>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Human Capital Index (HCI)</div>
+            <p class="card-text">
+              "One Million Uzbek Coders" initiative, IT Park university programs, and digital literacy training integrated across secondary schools.
+            </p>
+            <span class="metric-badge gold">Talent Pipeline</span>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 18px; border-color: rgba(6, 182, 212, 0.3);">
+          <div class="card-title">The UN EGDI Target: High to Very High EGDI Group</div>
+          <p class="card-text">
+            Uzbekistan is rapidly transitioning from paper documents to mobile-first cloud identity (Mobile-ID, Face-ID biometric public authentication).
+          </p>
+        </div>
+      </div>
+
+      <div class="slide-footer-info">
+        <span>Strategic Benchmark: Target top 30 in UN EGDI by 2030</span>
+        <span class="speech-hint" onclick="toggleSpeakerDrawer()">💬 View Speech Script</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 11 -->
+    <section class="slide" data-slide="11">
+      <div class="slide-meta">
+        <span class="slide-category">Economic Liberalization</span>
+        <span class="slide-counter-badge">Slide 11 / 20</span>
+      </div>
+      <div>
+        <h2 class="slide-title">Index of Economic Freedom (Heritage Foundation)</h2>
+        <p class="slide-subtitle">Transforming monetary freedom, fiscal health, and investment openness</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2col">
+          <div class="card">
+            <div class="card-title">Score Progression & Rank Elevation</div>
+            <ul class="bullet-list">
+              <li><strong>Monetary Freedom:</strong> Unification of official and market foreign currency rates in Sept 2017 ended decades of currency black markets.</li>
+              <li><strong>Tax Burden Reduction:</strong> Flat income tax rate (12%), VAT reduced from 20% to 12%, and corporate tax simplification.</li>
+              <li><strong>Trade Freedom:</strong> Removal of thousands of excise duties, customs simplification, and accelerated accession to the WTO.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Priority Areas for Further Gain</div>
+            <ul class="bullet-list">
+              <li><strong>Property Rights & Land:</strong> Legal framework allowing private ownership of non-agricultural land parcels.</li>
+              <li><strong>Financial Freedom:</strong> Privatization of state-owned commercial banks to foster private banking competition.</li>
+              <li><strong>Judicial Effectiveness:</strong> Ensuring foreign investor contracts are reliably enforced in impartial arbitration forums.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer-info">
+        <span>Benchmark: Heritage Foundation Annual Economic Freedom Index</span>
+        <span class="speech-hint" onclick="toggleSpeakerDrawer()">💬 View Speech Script</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 12 -->
+    <section class="slide" data-slide="12">
+      <div class="slide-meta">
+        <span class="slide-category">Private Sector & Investment</span>
+        <span class="slide-counter-badge">Slide 12 / 20</span>
+      </div>
+      <div>
+        <h2 class="slide-title">From "Doing Business" to World Bank "B-READY"</h2>
+        <p class="slide-subtitle">Preparing for the next-generation global corporate evaluation framework</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-3col">
+          <div class="card">
+            <div class="card-title">Pillar I: Regulatory Framework</div>
+            <p class="card-text">
+              Streamlined company incorporation (30 minutes online), elimination of seal/stamp requirements, and digital labor contracts.
+            </p>
+            <span class="metric-badge">Legal Ease</span>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Pillar II: Public Services</div>
+            <p class="card-text">
+              Automated connection to utility grids (electricity, water, gas), unified cadastral registry, and electronic construction permits.
+            </p>
+            <span class="metric-badge gold">Infrastructure</span>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Pillar III: Operational Efficiency</div>
+            <p class="card-text">
+              Real-world execution: commercial dispute resolution speed, simplified insolvency procedures, and digital customs pre-clearance.
+            </p>
+            <span class="metric-badge cyan">Market Operations</span>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 18px;">
+          <div class="card-title">The Business Ready (B-READY) Advantage</div>
+          <p class="card-text">
+            B-READY evaluates environmental sustainability, labor market protection, and actual de facto private sector experience across firms.
+          </p>
+        </div>
+      </div>
+
+      <div class="slide-footer-info">
+        <span>Strategic Benchmark: Target top 20 globally in business creation and investment ease</span>
+        <span class="speech-hint" onclick="toggleSpeakerDrawer()">💬 View Speech Script</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 13 -->
+    <section class="slide" data-slide="13">
+      <div class="slide-meta">
+        <span class="slide-category">Science & Knowledge Economy</span>
+        <span class="slide-counter-badge">Slide 13 / 20</span>
+      </div>
+      <div>
+        <h2 class="slide-title">Global Innovation Index (WIPO GII): Target Top 50</h2>
+        <p class="slide-subtitle">Pivoting Uzbekistan from commodity exports to knowledge-based intellectual output</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2col">
+          <div class="card">
+            <div class="card-title">Innovation Inputs Progress</div>
+            <ul class="bullet-list">
+              <li><strong>Institutions & Regulatory Environment:</strong> Creation of the Ministry of Higher Education, Science and Innovation, and venture funding laws.</li>
+              <li><strong>Human Capital & Research:</strong> Expansion of universities from 65 (in 2016) to over 210+, including 30+ international branch campuses.</li>
+              <li><strong>IT Park Ecosystem:</strong> Tax holidays until 2028; tech exports surging past $300M+ toward a $5B target by 2030.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Innovation Outputs & Scaling</div>
+            <ul class="bullet-list">
+              <li><strong>Patents & Trademarks:</strong> Modernizing the Intellectual Property Agency, fully aligning with WIPO conventions.</li>
+              <li><strong>Science-Production Integration:</strong> Commercialization funds financing university spin-offs in agritech and clean energy.</li>
+              <li><strong>Creative Goods & Knowledge Exports:</strong> Surging digital services, animation, software development, and fintech.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer-info">
+        <span>National KPI: Enter the Top 50 Innovator Nations in WIPO GII by 2030</span>
+        <span class="speech-hint" onclick="toggleSpeakerDrawer()">💬 View Speech Script</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 14 -->
+    <section class="slide" data-slide="14">
+      <div class="slide-meta">
+        <span class="slide-category">Transport & Connectivity</span>
+        <span class="slide-counter-badge">Slide 14 / 20</span>
+      </div>
+      <div>
+        <h2 class="slide-title">Logistics Performance Index (LPI) & Transport Corridors</h2>
+        <p class="slide-subtitle">Overcoming the "Double-Landlocked" geographic condition through strategic infrastructure</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-3col">
+          <div class="card">
+            <div class="card-title">Customs Modernization</div>
+            <p class="card-text">
+              Deployment of "Green Corridors" and automated non-intrusive cargo scanners reducing border transit clearance from days to hours.
+            </p>
+            <span class="metric-badge">Digital Border</span>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Multi-Modal Logistics Hubs</div>
+            <p class="card-text">
+              Dry ports and modern multimodal cargo hubs in Tashkent, Navoi, and Termez Cargo Centre connecting Central and South Asia.
+            </p>
+            <span class="metric-badge gold">Freight Hubs</span>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Strategic Mega-Corridors</div>
+            <p class="card-text">
+              Construction of the <strong>China–Kyrgyzstan–Uzbekistan railway</strong> and the <strong>Trans-Afghan railway corridor</strong> to the Indian Ocean.
+            </p>
+            <span class="metric-badge cyan">Ocean Access</span>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 18px;">
+          <div class="card-title">LPI Sub-Indicator Priorities</div>
+          <p class="card-text">
+            Focusing on shipment timeliness, tracking and tracing quality, logistics competence, and competitive international freight rates.
+          </p>
+        </div>
+      </div>
+
+      <div class="slide-footer-info">
+        <span>Strategic Benchmark: World Bank Logistics Performance Index</span>
+        <span class="speech-hint" onclick="toggleSpeakerDrawer()">💬 View Speech Script</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 15 -->
+    <section class="slide" data-slide="15">
+      <div class="slide-meta">
+        <span class="slide-category">Sovereign Debt & Capital Markets</span>
+        <span class="slide-counter-badge">Slide 15 / 20</span>
+      </div>
+      <div>
+        <h2 class="slide-title">Sovereign Credit Ratings (S&P, Fitch, Moody's)</h2>
+        <p class="slide-subtitle">Unlocking international capital markets and establishing investment-grade benchmarks</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-3col">
+          <div class="card">
+            <div class="card-title">Credit Profiles</div>
+            <div class="stat-hero">BB- <span>/ Ba3</span></div>
+            <p class="card-text">
+              Affirmed with "Stable" outlook by S&P Global, Fitch, and Moody's, reflecting strong fiscal buffers and low net public debt.
+            </p>
+            <span class="metric-badge">Stable Outlook</span>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Eurobond Pioneer</div>
+            <p class="card-text">
+              Debut sovereign Eurobond issued in 2019 on London Stock Exchange, followed by sovereign <strong>Green Bonds</strong> and UZS-denominated bonds.
+            </p>
+            <span class="metric-badge gold">Global Benchmark</span>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Corporate Umbrella</div>
+            <p class="card-text">
+              Sovereign benchmark enables leading state banks and corporate champions (Navoi Mining, Almalyk Mining) to independently raise global capital.
+            </p>
+            <span class="metric-badge cyan">Corporate Access</span>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 18px;">
+          <div class="card-title">Fiscal Anchor: The Law on State Debt</div>
+          <p class="card-text">
+            Statutory sovereign debt ceiling established at <strong>60% of GDP</strong> and backed by over $35+ billion in gold and foreign currency reserves.
+          </p>
+        </div>
+      </div>
+
+      <div class="slide-footer-info">
+        <span>Responsible Agency: Ministry of Economy and Finance</span>
+        <span class="speech-hint" onclick="toggleSpeakerDrawer()">💬 View Speech Script</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 16 -->
+    <section class="slide" data-slide="16">
+      <div class="slide-meta">
+        <span class="slide-category">Human Capital & Social Investment</span>
+        <span class="slide-counter-badge">Slide 16 / 20</span>
+      </div>
+      <div>
+        <h2 class="slide-title">Human Development Index (HDI - UNDP)</h2>
+        <p class="slide-subtitle">Investing in health, longevity, and generational educational expansion</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-3col">
+          <div class="card">
+            <div class="stat-hero">0.73+</div>
+            <div class="card-title">High Human Development</div>
+            <p class="card-text">Uzbekistan is situated in the "High Human Development" tier, with steady gains across all composite dimensions.</p>
+          </div>
+
+          <div class="card">
+            <div class="stat-hero">74+ <span>yrs</span></div>
+            <div class="card-title">Life Expectancy Growth</div>
+            <p class="card-text">Driven by primary healthcare digitization, maternal and child healthcare, and regional medical centers.</p>
+          </div>
+
+          <div class="card">
+            <div class="stat-hero">74%</div>
+            <div class="card-title">Preschool Enrollment Leap</div>
+            <p class="card-text">Preschool coverage expanded from just 27% in 2016 to over 74% today through public-private partnerships.</p>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 18px;">
+          <div class="card-title">Higher Education Massification</div>
+          <p class="card-text">
+            Higher education enrollment rate skyrocketed from <strong>9% in 2016 to nearly 40%</strong>, democratizing university access for youth and female students.
+          </p>
+        </div>
+      </div>
+
+      <div class="slide-footer-info">
+        <span>Source: UNDP Human Development Report</span>
+        <span class="speech-hint" onclick="toggleSpeakerDrawer()">💬 View Speech Script</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 17 -->
+    <section class="slide" data-slide="17">
+      <div class="slide-meta">
+        <span class="slide-category">Social Inclusivity & Equity</span>
+        <span class="slide-counter-badge">Slide 17 / 20</span>
+      </div>
+      <div>
+        <h2 class="slide-title">Global Gender Gap & Social Protection Progress</h2>
+        <p class="slide-subtitle">Empowering women in legislative leadership and modernizing social safety nets</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2col">
+          <div class="card">
+            <div class="card-title">Women in Political Leadership</div>
+            <ul class="bullet-list">
+              <li><strong>32%+ Women in Parliament:</strong> Oliy Majlis surpassed global averages through mandatory 30% electoral quotas.</li>
+              <li><strong>Senate Leadership:</strong> Tanzila Narbaeva serves as Senate Chairwoman, championing human rights and labor reforms.</li>
+              <li><strong>Elimination of Forced Labor:</strong> Historic eradication of child and forced labor in cotton harvesting recognized by ILO.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Modern Social Safety Nets</div>
+            <ul class="bullet-list">
+              <li><strong>Single Social Registry (Yagona Reestr):</strong> Automated, means-tested algorithmic social payments without human discretion.</li>
+              <li><strong>National Social Protection Agency:</strong> Established in 2023 under the President to integrate disability and child welfare.</li>
+              <li><strong>Female Education Subsidies:</strong> State covers full master's degree tuition for all female students in public universities.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer-info">
+        <span>Benchmark: WEF Global Gender Gap Report & UNDP Gender Inequality Index</span>
+        <span class="speech-hint" onclick="toggleSpeakerDrawer()">💬 View Speech Script</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 18 -->
+    <section class="slide" data-slide="18">
+      <div class="slide-meta">
+        <span class="slide-category">Global Agenda 2030</span>
+        <span class="slide-counter-badge">Slide 18 / 20</span>
+      </div>
+      <div>
+        <h2 class="slide-title">UN Sustainable Development Goals (SDG) Index</h2>
+        <p class="slide-subtitle">Voluntary National Reviews and the alignment of state budget with the 17 SDGs</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-3col">
+          <div class="card">
+            <div class="card-title">SDG 1 & 8: Decent Work & Poverty</div>
+            <p class="card-text">Implementation of the "Mahallabay" system: each neighborhood assigns an economic assistant to facilitate microloans and skills.</p>
+            <span class="metric-badge">Community Level</span>
+          </div>
+
+          <div class="card">
+            <div class="card-title">SDG 7 & 13: Green Energy Transition</div>
+            <p class="card-text">Commissioning massive solar and wind mega-farms (ACWA Power, Masdar) aiming for 25+ GW of renewable capacity by 2030.</p>
+            <span class="metric-badge cyan">Green Energy</span>
+          </div>
+
+          <div class="card">
+            <div class="card-title">SDG 6 & 15: Aral Sea Ecological Zone</div>
+            <p class="card-text">Afforestation of over 1.8 million hectares of dried Aral seabed with saxaul forests; designated as a UN Ecological Zone.</p>
+            <span class="metric-badge gold">Eco-Restoration</span>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 18px;">
+          <div class="card-title">Parliamentary SDG Commission</div>
+          <p class="card-text">
+            Uzbekistan is one of the few nations where parliament established a dedicated Parliamentary Commission for Monitoring the Implementation of National SDGs.
+          </p>
+        </div>
+      </div>
+
+      <div class="slide-footer-info">
+        <span>Framework: UN Sustainable Development Report & National VNR</span>
+        <span class="speech-hint" onclick="toggleSpeakerDrawer()">💬 View Speech Script</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 19 -->
+    <section class="slide" data-slide="19">
+      <div class="slide-meta">
+        <span class="slide-category">Critical Gaps & Execution</span>
+        <span class="slide-counter-badge">Slide 19 / 20</span>
+      </div>
+      <div>
+        <h2 class="slide-title">Critical Gaps, Structural Challenges & Roadmaps</h2>
+        <p class="slide-subtitle">A realistic assessment: Navigating methodology constraints and bureaucratic inertia</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2col">
+          <div class="card" style="border-left: 4px solid #ef4444;">
+            <div class="card-title" style="color: #f87171;">Remaining Structural Challenges</div>
+            <ul class="bullet-list">
+              <li><strong>Time-Lag in Methodologies:</strong> Global indices often reflect data from 18–24 months prior, delaying recognition of reforms.</li>
+              <li><strong>State-Owned Enterprise Footprint:</strong> SOEs still dominate heavy industry, energy, and banking, requiring accelerated privatization.</li>
+              <li><strong>Regional Khokimiyat Capacity:</strong> Disparity between central ministries in Tashkent and regional administrative execution.</li>
+            </ul>
+          </div>
+
+          <div class="card" style="border-left: 4px solid var(--accent-emerald);">
+            <div class="card-title" style="color: var(--accent-emerald);">Acceleration Roadmaps</div>
+            <ul class="bullet-list">
+              <li><strong>Direct Dialogue with Agencies:</strong> Regular bilateral methodology workshops with WIPO, WJP, and Heritage Foundation.</li>
+              <li><strong>Sub-National Rating Dashboards:</strong> Implementing index benchmarks directly down to individual city and district Khokims.</li>
+              <li><strong>Digital Real-Time Reporting:</strong> Integrating live API feeds between government registries and open international repositories.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer-info">
+        <span>Strategic Principle: Transparency demands acknowledging weaknesses to engineer targeted solutions.</span>
+        <span class="speech-hint" onclick="toggleSpeakerDrawer()">💬 View Speech Script</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 20 -->
+    <section class="slide" data-slide="20">
+      <div class="slide-meta">
+        <span class="slide-category">Synthesis & Future Outlook</span>
+        <span class="slide-counter-badge">Slide 20 / 20</span>
+      </div>
+      <div>
+        <h2 class="slide-title">Conclusion: Ratings as an Instrument of Sovereignty</h2>
+        <p class="slide-subtitle">Building an open, competitive, and prosperous modern Uzbekistan</p>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-3col">
+          <div class="card">
+            <div class="card-accent-border"></div>
+            <div class="card-title">1. Not Vanity, But Velocity</div>
+            <p class="card-text">
+              International ratings are an objective diagnostic tool revealing institutional bottlenecks and accelerating real reforms.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-accent-border"></div>
+            <div class="card-title">2. Investor & Public Trust</div>
+            <p class="card-text">
+              Higher ratings directly translate into lower borrowing costs on sovereign debt, increased FDI, and enhanced citizen trust.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-accent-border"></div>
+            <div class="card-title">3. The 2030 Horizon</div>
+            <p class="card-text">
+              An open knowledge economy, robust rule of law, sustainable green growth, and a recognized leader in Central Asian prosperity.
+            </p>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 18px; text-align: center; padding: 24px; background: rgba(16, 185, 129, 0.08); border-color: var(--accent-emerald);">
+          <h3 style="font-size: 20px; font-family: var(--font-heading); color: #fff; margin-bottom: 6px;">
+            "Reforms are not for ratings; ratings are the mirror reflecting our reforms."
+          </h3>
+          <p style="font-size: 13.5px; color: var(--text-sub);">
+            Thank you for your attention. The floor is now open for questions and strategic discussion.
+          </p>
+        </div>
+      </div>
+
+      <div class="slide-footer-info">
+        <span>End of Deck. Ready for Q&A</span>
+        <span class="speech-hint" onclick="toggleSpeakerDrawer()">💬 View Closing Speech Script</span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SPEAKER TELEPROMPTER DRAWER -->
+  <aside class="speaker-drawer" id="speakerDrawer">
+    <div class="drawer-header">
+      <h3>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/></svg>
+        Presenter Teleprompter (30-40s)
+      </h3>
+      <button class="close-drawer-btn" onclick="toggleSpeakerDrawer()">✕</button>
+    </div>
+
+    <div class="drawer-body">
+      <div class="teleprompter-banner">
+        <span>⏱️</span>
+        <span>Target Pace: <strong>30 to 40 seconds per slide</strong>. Concise, punchy, and keeps the audience fully engaged!</span>
+      </div>
+
+      <div class="speech-meta-card">
+        <div class="speech-meta-item">
+          <strong>Current Slide</strong>
+          <span id="speechSlideNum">Slide 1 of 20</span>
+        </div>
+        <div class="speech-meta-item">
+          <strong>Target Duration</strong>
+          <span id="speechDuration">30 - 40 Seconds</span>
+        </div>
+        <div class="speech-meta-item">
+          <strong>Word Count</strong>
+          <span id="speechWordCount">~60 Words</span>
+        </div>
+        <div class="speech-meta-item">
+          <strong>Delivery Tone</strong>
+          <span id="speechTone">Crisp & Confident</span>
+        </div>
+      </div>
+
+      <div class="speech-box">
+        <h4>Spoken Script (Word-for-Word)</h4>
+        <div class="speech-text" id="speechTextContent">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- GRID VIEW MODAL -->
+  <div class="grid-modal" id="gridModal">
+    <div class="grid-modal-header">
+      <h2 style="font-family: var(--font-heading); color: #fff;">Slide Navigator (20 Slides)</h2>
+      <button class="btn-action" onclick="toggleGridModal()">Close (Esc)</button>
+    </div>
+    <div class="grid-slides-wrapper" id="gridSlidesContainer">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+
+  <!-- Footer Navigation -->
+  <footer class="deck-footer">
+    <div class="footer-left">
+      <div class="progress-bar-container">
+        <div class="progress-bar-fill" id="progressBar"></div>
+      </div>
+      <div class="slide-index-display">
+        Slide <span id="currentSlideNum">1</span> / 20
+      </div>
+    </div>
+
+    <div class="footer-center">
+      <button class="nav-btn" id="prevBtn" title="Previous Slide (← / Up)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+      </button>
+      <button class="nav-btn" id="nextBtn" title="Next Slide (→ / Space / Enter)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+      </button>
+    </div>
+
+    <div class="footer-right">
+      <div class="key-tip">
+        <span class="kbd">←</span> <span class="kbd">→</span> Prev / Next
+      </div>
+      <div class="key-tip">
+        <span class="kbd">S</span> Notes
+      </div>
+      <div class="key-tip">
+        <span class="kbd">G</span> Grid
+      </div>
+      <div class="key-tip">
+        <span class="kbd">F</span> Fullscreen
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ==============================================================
+    // CONCISE 30-40 SECOND SPEECH SCRIPTS FOR ALL 20 SLIDES
+    // ==============================================================
+    const SPEECHES = {
+      1: {
+        duration: "30 - 40 Seconds",
+        tone: "Engaging, crisp, and authoritative",
+        script: 
+`"Distinguished audience, welcome. 
+
+Today we examine how Uzbekistan transformed international ratings and indices from foreign critique into a binding compass for modern statehood. 
+
+<span class='cue cue-point'>POINT TO KEY MILESTONES</span>
+
+Under President Shavkat Mirziyoyev, landmark Decrees UP-5729 and UP-6003 integrated global benchmarks directly into ministerial KPIs and the 'Uzbekistan – 2030' Strategy. Over the next few minutes, let us explore the critical indicators and real reforms driving our nation's modernization."`
+      },
+
+      2: {
+        duration: "30 - 40 Seconds",
+        tone: "Analytical and sharp",
+        script:
+`"To appreciate today's momentum, consider our recent history. 
+
+Between 1991 and 2016, Uzbekistan followed a closed, cautious model—official statistics were largely non-transparent, resulting in poor international ratings and a severe perception gap. 
+
+<span class='cue cue-point'>HIGHLIGHT 2016 SHIFT</span>
+
+Since 2016, that model was overturned: we opened official data, liberalized foreign exchange, and made international benchmarks state policy. Ratings shifted from an external test into our internal reform compass."`
+      },
+
+      3: {
+        duration: "30 - 40 Seconds",
+        tone: "Decisive and institutional",
+        script:
+`"This transformation succeeded because it is backed by legal accountability. 
+
+Presidential Decree UP-6003 created the Republican Council on International Ratings, co-chaired by the Senate Chair and the Speaker of Parliament. 
+
+<span class='cue cue-pause'>PAUSE</span>
+
+Every ministry is personally assigned specific index KPIs. If our standing slips, ministers face direct parliamentary hearings. It is a data-driven system of executive accountability."`
+      },
+
+      4: {
+        duration: "30 - 40 Seconds",
+        tone: "Structured and clear",
+        script:
+`"Uzbekistan structures its priority ratings into two interconnected pillars. 
+
+<span class='cue cue-point'>PILLAR 1 VS PILLAR 2</span>
+
+Pillar One focuses on Political-Legal and Governance indices—such as the Rule of Law Index, Open Data, and Anti-Corruption. 
+
+Pillar Two drives Socio-Economic metrics—including Innovation, Economic Freedom, and Logistics. 
+
+The foundational rule is simple: sustainable economic growth cannot exist without an impartial justice system and institutional transparency."`
+      },
+
+      5: {
+        duration: "35 - 40 Seconds",
+        tone: "Visionary and target-driven",
+        script:
+`"Approved in 2023, the 'Uzbekistan – 2030' Strategy quantifies our national future with binding targets:
+
+<span class='cue cue-point'>HIGHLIGHT 4 STATS</span>
+
+Enter the Top 50 in the Global Innovation Index; double our GDP to 160 billion dollars with per capita income over 4,000 dollars; achieve Top 30 in open data and e-governance; and cut poverty in half. Over one hundred concrete KPIs are mapped directly to regional governors."`
+      },
+
+      6: {
+        duration: "30 - 40 Seconds",
+        tone: "Fast-paced and analytical",
+        script:
+`"The World Bank's Worldwide Governance Indicators evaluate state quality across six pillars. 
+
+Uzbekistan's fastest progress has been in Regulatory Quality and Government Effectiveness, driven by cutting bureaucratic red tape and launching Public Service Centers. 
+
+<span class='cue cue-point'>EMPHASIZE OPEN BUDGET</span>
+
+Simultaneously, we are strengthening the Rule of Law, anti-corruption safeguards, and citizen budget allocation through Open Budget."`
+      },
+
+      7: {
+        duration: "30 - 40 Seconds",
+        tone: "Serious and authoritative",
+        script:
+`"In the World Justice Project's Rule of Law Index, Uzbekistan is one of the top gainers across Eastern Europe and Central Asia, scoring near the top globally in public safety and order. 
+
+<span class='cue cue-pause'>PAUSE</span>
+
+To guarantee genuine judicial independence, we transferred search and wiretap warrants from prosecutors to judges, introduced automated case distribution, and strengthened the independent bar."`
+      },
+
+      8: {
+        duration: "30 - 40 Seconds",
+        tone: "Direct and determined",
+        script:
+`"On the Corruption Perceptions Index, Uzbekistan climbed by over 12 points, moving steadily away from the bottom tier. 
+
+In 2020, we established an independent Anti-Corruption Agency and mandated electronic public procurement on xarid.uzex.uz. 
+
+<span class='cue cue-point'>HIGHLIGHT OCHIQ BUDJET</span>
+
+Through 'Ochiq Budjet', citizens directly decide where trillions of public sums are spent, systematically eliminating corrupt backrooms."`
+      },
+
+      9: {
+        duration: "30 - 40 Seconds",
+        tone: "Energetic and proud",
+        script:
+`"Here is one of our greatest breakthroughs: in the global Open Data Inventory, Uzbekistan surged from 168th place in 2015 to 30th in the world today! 
+
+<span class='cue cue-pause'>PAUSE FOR IMPACT</span>
+
+We rank Number 1 in Central Asia and Number 2 in the CIS. With over 15,000 open datasets on data.egov.uz, transparency is no longer a slogan—it is a proven digital reality."`
+      },
+
+      10: {
+        duration: "30 - 40 Seconds",
+        tone: "Modern and tech-focused",
+        script:
+`"Under 'Digital Uzbekistan – 2030', public governance has moved straight to citizens' smartphones. 
+
+Through my.gov.uz, over 570 public services are fully automated without human intermediaries. 
+
+<span class='cue cue-point'>INFRASTRUCTURE + SKILLS</span>
+
+With 250,000 kilometers of new fiber-optic infrastructure and tech programs like 'One Million Coders', our goal is entering the UN's elite 'Very High' E-Government group by 2030."`
+      },
+
+      11: {
+        duration: "30 - 40 Seconds",
+        tone: "Economic and confident",
+        script:
+`"In the Heritage Foundation Index of Economic Freedom, Uzbekistan advanced from 'Repressed' to 'Moderately Free'. 
+
+<span class='cue cue-point'>TAX & CURRENCY WINS</span>
+
+Key catalysts included the historic 2017 currency unification, flat 12% income tax, slashing VAT to 12%, and removing import barriers. Our next leaps focus on privatizing non-agricultural land and state banks to expand private enterprise."`
+      },
+
+      12: {
+        duration: "30 - 40 Seconds",
+        tone: "Executive and business-minded",
+        script:
+`"Replacing the old Doing Business report, the World Bank's new B-READY metric evaluates real private-sector operating conditions. 
+
+In Uzbekistan, starting a business takes under 30 minutes online, digital utility connections are automated, and corporate insolvency procedures are modernized. 
+
+<span class='cue cue-pause'>PAUSE</span>
+
+Our objective: the most agile, investor-friendly market in Central Asia."`
+      },
+
+      13: {
+        duration: "30 - 40 Seconds",
+        tone: "Forward-looking and inspiring",
+        script:
+`"True prosperity cannot rely solely on raw commodities like gold or gas. In the Global Innovation Index, our target is Top 50 by 2030. 
+
+<span class='cue cue-point'>UNIVERSITIES & TECH EXPORTS</span>
+
+Since 2016, our universities expanded from 65 to over 210, while IT Park drove software exports past 300 million dollars toward a 5-billion-dollar goal. We are building a knowledge-driven economy."`
+      },
+
+      14: {
+        duration: "30 - 40 Seconds",
+        tone: "Geopolitical and strategic",
+        script:
+`"Uzbekistan is double-landlocked, meaning our exports must cross two borders to reach the ocean. 
+
+To overcome this, our Logistics Strategy deployed 24/7 digital customs green corridors, multimodal dry ports, and game-changing railways: 
+
+<span class='cue cue-point'>STRATEGIC CORRIDORS</span>
+
+The China–Kyrgyzstan–Uzbekistan line and the Trans-Afghan corridor, unlocking direct rail access to Indian Ocean seaports."`
+      },
+
+      15: {
+        duration: "30 - 40 Seconds",
+        tone: "Prestigious and financial",
+        script:
+`"A sovereign credit rating is a nation's financial passport. S&P, Fitch, and Moody's maintain a stable 'BB-' profile for Uzbekistan. 
+
+Following our debut London Eurobond in 2019, green and local currency bonds opened global capital markets. 
+
+<span class='cue cue-pause'>PAUSE</span>
+
+A statutory debt ceiling of 60% of GDP and 35+ billion dollars in reserves guarantee fiscal stability."`
+      },
+
+      16: {
+        duration: "30 - 40 Seconds",
+        tone: "Human-centric and proud",
+        script:
+`"Economic metrics exist to improve human lives. In the UN Human Development Index, Uzbekistan is in the High Development tier. 
+
+<span class='cue cue-point'>LONGEVITY & EDUCATION</span>
+
+Life expectancy reached 74 years; preschool enrollment skyrocketed from 27% in 2016 to over 74% today; and university access jumped from 9% to nearly 40%. Investing in youth is the foundation of our Third Renaissance."`
+      },
+
+      17: {
+        duration: "30 - 40 Seconds",
+        tone: "Progressive and socially conscious",
+        script:
+`"Inclusive progress is vital for modern Uzbekistan. Women now hold over 32% of parliamentary seats—surpassing global averages. 
+
+We completely eradicated forced labor in cotton harvesting, automated welfare through the algorithmic Single Social Registry, and fully subsidize master's degree tuition for female students. 
+
+<span class='cue cue-pause'>PAUSE</span>
+
+Empowering women empowers the entire nation."`
+      },
+
+      18: {
+        duration: "30 - 40 Seconds",
+        tone: "Global and green",
+        script:
+`"Uzbekistan integrates the 17 UN Sustainable Development Goals directly into budget planning. 
+
+Key milestones include the 'Mahallabay' neighborhood poverty reduction system, over 25 gigawatts of solar and wind projects to reach 40% clean energy by 2030, and planting 1.8 million hectares of forest across the dried Aral seabed to remediate an environmental catastrophe."`
+      },
+
+      19: {
+        duration: "30 - 40 Seconds",
+        tone: "Honest and solution-driven",
+        script:
+`"Credible leadership addresses real challenges. 
+
+Global rating agencies often have an 18-month reporting lag, and state enterprises still occupy a large economic footprint. 
+
+<span class='cue cue-point'>SOLUTIONS</span>
+
+To accelerate progress, we are feeding real-time data to international agencies, holding regional Khokims personally accountable to rating benchmarks, and accelerating SOE privatization."`
+      },
+
+      20: {
+        duration: "30 - 40 Seconds",
+        tone: "Inspirational closing",
+        script:
+`"To conclude: as President Mirziyoyev stated, 'Reforms are not for ratings; ratings are the mirror reflecting our reforms.' 
+
+<span class='cue cue-pause'>PAUSE FOR IMPACT</span>
+
+Higher ratings mean protected entrepreneurs, transparent budgets, digital convenience, and dignified lives for every citizen. International ratings are our compass to an open, modern, and prosperous Uzbekistan. 
+
+Thank you, and I look forward to your questions."`
+      }
+    };
+
+    let currentSlide = 1;
+    const totalSlides = 20;
+
+    const slides = document.querySelectorAll('.slide');
+    const progressBar = document.getElementById('progressBar');
+    const currentSlideNumDisplay = document.getElementById('currentSlideNum');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const speakerDrawer = document.getElementById('speakerDrawer');
+    const speakerToggleBtn = document.getElementById('speakerToggleBtn');
+    const speechSlideNum = document.getElementById('speechSlideNum');
+    const speechDuration = document.getElementById('speechDuration');
+    const speechWordCount = document.getElementById('speechWordCount');
+    const speechTone = document.getElementById('speechTone');
+    const speechTextContent = document.getElementById('speechTextContent');
+    const gridModal = document.getElementById('gridModal');
+    const gridToggleBtn = document.getElementById('gridToggleBtn');
+    const gridSlidesContainer = document.getElementById('gridSlidesContainer');
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+    function showSlide(index) {
+      if (index < 1) index = 1;
+      if (index > totalSlides) index = totalSlides;
+
+      slides.forEach(slide => slide.classList.remove('active'));
+      const targetSlide = document.querySelector(`.slide[data-slide="${index}"]`);
+      if (targetSlide) {
+        targetSlide.classList.add('active');
+      }
+
+      currentSlide = index;
+      currentSlideNumDisplay.textContent = currentSlide;
+
+      const progressPercent = ((currentSlide) / totalSlides) * 100;
+      progressBar.style.width = `${progressPercent}%`;
+
+      prevBtn.disabled = (currentSlide === 1);
+      nextBtn.disabled = (currentSlide === totalSlides);
+
+      updateSpeakerNotes(currentSlide);
+      updateGridActiveState();
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        showSlide(currentSlide + 1);
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        showSlide(currentSlide - 1);
+      }
+    }
+
+    function updateSpeakerNotes(slideNum) {
+      const speech = SPEECHES[slideNum];
+      if (speech) {
+        speechSlideNum.textContent = `Slide ${slideNum} of ${totalSlides}`;
+        speechDuration.textContent = speech.duration;
+        speechTone.textContent = speech.tone;
+        speechTextContent.innerHTML = speech.script;
+
+        // Calculate approximate word count (stripping html tags)
+        const plainText = speech.script.replace(/<[^>]*>/g, '');
+        const words = plainText.trim().split(/\s+/).filter(w => w.length > 0).length;
+        speechWordCount.textContent = `~${words} Words (approx. 35s)`;
+      }
+    }
+
+    function toggleSpeakerDrawer() {
+      speakerDrawer.classList.toggle('open');
+      speakerToggleBtn.classList.toggle('active', speakerDrawer.classList.contains('open'));
+    }
+
+    function toggleGridModal() {
+      gridModal.classList.toggle('open');
+      gridToggleBtn.classList.toggle('active', gridModal.classList.contains('open'));
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+          console.warn(`Error attempting fullscreen: ${err.message}`);
+        });
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    function buildGridOverview() {
+      gridSlidesContainer.innerHTML = '';
+      slides.forEach((slide, idx) => {
+        const slideIndex = idx + 1;
+        const titleElem = slide.querySelector('.slide-title');
+        const categoryElem = slide.querySelector('.slide-category');
+        const titleText = titleElem ? titleElem.textContent : `Slide ${slideIndex}`;
+        const catText = categoryElem ? categoryElem.textContent : '';
+
+        const thumb = document.createElement('div');
+        thumb.className = `grid-slide-thumb ${slideIndex === currentSlide ? 'active' : ''}`;
+        thumb.dataset.slide = slideIndex;
+        thumb.innerHTML = `
+          <div>
+            <div class="thumb-number">${catText} • #${slideIndex}</div>
+            <div class="thumb-title">${titleText}</div>
+          </div>
+          <div style="font-size: 11px; color: var(--accent-emerald);">Click to Jump ➔</div>
+        `;
+        thumb.addEventListener('click', () => {
+          showSlide(slideIndex);
+          toggleGridModal();
+        });
+        gridSlidesContainer.appendChild(thumb);
+      });
+    }
+
+    function updateGridActiveState() {
+      const thumbs = document.querySelectorAll('.grid-slide-thumb');
+      thumbs.forEach(thumb => {
+        if (parseInt(thumb.dataset.slide, 10) === currentSlide) {
+          thumb.classList.add('active');
+        } else {
+          thumb.classList.remove('active');
+        }
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (gridModal.classList.contains('open')) {
+          toggleGridModal();
+          return;
+        }
+        if (speakerDrawer.classList.contains('open')) {
+          toggleSpeakerDrawer();
+          return;
+        }
+      }
+
+      if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        prevSlide();
+      } else if (e.key === 's' || e.key === 'S') {
+        toggleSpeakerDrawer();
+      } else if (e.key === 'g' || e.key === 'G') {
+        toggleGridModal();
+      } else if (e.key === 'f' || e.key === 'F') {
+        toggleFullscreen();
+      } else if (e.key === 'Home') {
+        showSlide(1);
+      } else if (e.key === 'End') {
+        showSlide(totalSlides);
+      }
+    });
+
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+    speakerToggleBtn.addEventListener('click', toggleSpeakerDrawer);
+    gridToggleBtn.addEventListener('click', toggleGridModal);
+    fullscreenBtn.addEventListener('click', toggleFullscreen);
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    document.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    document.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleGesture();
+    }, { passive: true });
+
+    function handleGesture() {
+      const diff = touchEndX - touchStartX;
+      if (Math.abs(diff) > 50) {
+        if (diff < 0) nextSlide();
+        else prevSlide();
+      }
+    }
+
+    buildGridOverview();
+    showSlide(1);
+  </script>
+</body>
+</html>
